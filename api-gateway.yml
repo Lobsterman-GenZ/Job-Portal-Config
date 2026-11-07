@@ -8,3 +8,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   instance:
     prefer-ip-address: true
+
+jwt:
+  secret: 425QW9OgCvXim8H1AcTo612PdfTmYfSDD6oRVVGKpdK
+  expiration: 864000000
