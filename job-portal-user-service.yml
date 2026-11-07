@@ -1,0 +1,48 @@
+server:
+  port: 5001
+
+spring:
+  # application:
+  #   name: user-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/job_portal_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+jwt:
+  secret: 425QW9OgCvXim8H1AcTo612PdfTmYfSDD6oRVVGKpdK
+  expiration: 864000000
+
+
+
+logging:
+  level:
+    org.springframework.security: TRACE
+    com.orgs.job.userservice.security: DEBUG
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
